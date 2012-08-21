@@ -16,20 +16,23 @@ public class TicketMachine
     // The price of a ticket from this machine.
     private int price;
     // The amount of money entered by a customer so far.
-    private int balance;
+    private double balance;
     // The total amount of money collected by this machine.
-    private int total;
+    private double total;
+    
+    private double discount;
 
     /**
      * Create a machine that issues tickets of the given price.
      * Note that the price must be greater than zero, and there
      * are no checks to ensure this.
      */
-    public TicketMachine(int cost)
+    public TicketMachine(int cost,double d)
     {
         price = cost;
         balance = 0;
         total = 0;
+        discount = d;
     }
 
     /**
@@ -44,7 +47,7 @@ public class TicketMachine
      * Return the amount of money already inserted for the
      * next ticket.
      */
-    public int getBalance()
+    public double getBalance()
     {
         return balance;
     }
@@ -64,19 +67,23 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        if (balance >= price) {
+        //double savings = p
+       double derPreisFuerDiesesTicket = price - (price*discount);
+       System.out.println("derPreisFuerDiesesTicket: "+derPreisFuerDiesesTicket); 
+       
+       if (balance >= derPreisFuerDiesesTicket) {
         // Simulate the printing of a ticket.
         System.out.println("##################");
         System.out.println("# The BlueJ Line");
         System.out.println("# Ticket");
-        System.out.println("# " + price + " cents.");
+        System.out.println("# " + derPreisFuerDiesesTicket + " cents.");
         System.out.println("##################");
         System.out.println();
 
         // Update the total collected with the balance.
         total = total + balance;
         // Clear the balance.
-        balance = balance - price;
+        balance = balance - derPreisFuerDiesesTicket;
         System.out.println("balance: "+balance);
     } else {
         System.out.println("Please insert money first.");
@@ -84,9 +91,9 @@ public class TicketMachine
     }
     public int refundBalance(){
        int amountToReturn; 
-       amountToReturn = balance; 
+       amountToReturn = (int)balance; 
        balance = 0;
        return amountToReturn;
     }
-      
+  
 }
