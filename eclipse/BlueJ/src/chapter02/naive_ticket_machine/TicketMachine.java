@@ -1,4 +1,5 @@
 package chapter02.naive_ticket_machine;
+
 /**
  * TicketMachine models a naive ticket machine that issues
  * flat-fare tickets.
@@ -7,7 +8,7 @@ package chapter02.naive_ticket_machine;
  * to insert enough money before trying to print a ticket.
  * It also assumes that users enter sensible amounts.
  *
- * @author David J. Barnes and Michael KÃ¶lling
+ * @author David J. Barnes and Michael Kšlling
  * @version 2011.07.31
  */
 public class TicketMachine
@@ -63,6 +64,7 @@ public class TicketMachine
      */
     public void printTicket()
     {
+        if (balance >= price) {
         // Simulate the printing of a ticket.
         System.out.println("##################");
         System.out.println("# The BlueJ Line");
@@ -76,5 +78,15 @@ public class TicketMachine
         // Clear the balance.
         balance = balance - price;
         System.out.println("balance: "+balance);
+    } else {
+        System.out.println("Please insert money first.");
     }
+    }
+    public int refundBalance(){
+       int amountToReturn; 
+       amountToReturn = balance; 
+       balance = 0;
+       return amountToReturn;
+    }
+      
 }
