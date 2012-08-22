@@ -1,6 +1,5 @@
 package agame;
 
-import agame.wuerfel.Wuerfel;
 
 public class Game {
 
