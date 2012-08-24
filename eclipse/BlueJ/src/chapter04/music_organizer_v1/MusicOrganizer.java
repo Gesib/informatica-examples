@@ -108,6 +108,19 @@ public class MusicOrganizer {
 		}
 
 	}
+	public static void testDelete() {
+
+		MusicOrganizer mo = new MusicOrganizer();
+		mo.addFile("foo.mp3");
+		mo.addFile("bar.mp3");
+		mo.addFile("baz.mp3");
+		mo.addFile("foobar.mp3");
+		mo.addFile("bla.mp3");
+		
+		mo.deleteContaining("bar");
+		System.out.println("should be: foo baz foobar bla");
+		mo.listAllFiles();
+	}
 
 	public static void main(String[] x) {
 		testFind();
