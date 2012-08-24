@@ -8,8 +8,9 @@ public void werfe()
 public int getSumme()
 // gibt die Summe der beiden würfel zurück
 
-1.b - zusatzaufgabe: 
-Erweitere die Klasse Wuerfelpaar um eine Klasse Maexchen, die die Würfel als Mäxchenpaar interpretiert http://de.wikipedia.org/wiki/Mäxchen
+1.b - Zusatzaufgabe: 
+Erweitere die Klasse Wuerfelpaar um eine Klasse Maexchen, die die Würfel als Mäxchenpaar interpretiert
+http://de.wikipedia.org/wiki/Meiern
 und entsprechende Punkte zurückgibt (als String)
 
 2. Stelle einen Würfel mithilfe des "house" Projects grafisch dar. Verwende dazu z.b. ein Square und sieben Kreise. Der Würfel soll alle Zahlen zwischen 1 und 6 anzeigen können.
