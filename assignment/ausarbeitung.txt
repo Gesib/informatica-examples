@@ -1,0 +1,25 @@
+Aufgaben für Ausarbeitung
+
+1.a Definiere eine Klasse Wuerfelpaar, die zwei Würfel zusammenfasst (zwei Felder vom Typ Würfel hat, aufbauend auf der Übung im Kurs) und folgende Methoden hat:
+
+public void werfe()
+// wirft beide würfel
+
+public int getSumme()
+// gibt die Summe der beiden würfel zurück
+
+1.b - zusatzaufgabe: 
+Erweitere die Klasse Wuerfelpaar um eine Klasse Maexchen, die die Würfel als Mäxchenpaar interpretiert http://de.wikipedia.org/wiki/Mäxchen
+und entsprechende Punkte zurückgibt (als String)
+
+2. Stelle einen Würfel mithilfe des "house" Projects grafisch dar. Verwende dazu z.b. ein Square und sieben Kreise. Der Würfel soll alle Zahlen zwischen 1 und 6 anzeigen können.
+
+2a. Erweitere die Klassen Circle und Square um eine Methode, die es ermöglicht, ihre Position direkt zu setzen.
+
+2b. Variante eins zum Darstellen der Zahlen: lege für jede Zahl eine methode an
+(z.B. showOne(), showTwo() ) die den Würfel die entsprechende Zahl zeigend darstellt.
+
+2c. schreibe eine Methode show(int number) die die übergebene Zahl darstellt und die Methoden von 2b verwendet. Verwende hierzu if-statements oder besser: google die switch-case anweisung und verwende die.
+
+2d Baue die Funktionen zum Würfeln (werfe) in den Grafischen Würfel ein.
+
