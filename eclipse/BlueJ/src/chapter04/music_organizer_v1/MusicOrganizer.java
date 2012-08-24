@@ -10,13 +10,13 @@ import java.util.ArrayList;
  */
 public class MusicOrganizer {
 	// An ArrayList for storing the file names of music files.
-	private ArrayList<String> files;
+	private ArrayList<String> theListOfAllFiles;
 
 	/**
 	 * Create a MusicOrganizer
 	 */
 	public MusicOrganizer() {
-		files = new ArrayList<String>();
+		theListOfAllFiles = new ArrayList<String>();
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class MusicOrganizer {
 	 *            The file to be added.
 	 */
 	public void addFile(String filename) {
-		files.add(filename);
+		theListOfAllFiles.add(filename);
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class MusicOrganizer {
 	 * @return The number of files in the collection.
 	 */
 	public int getNumberOfFiles() {
-		return files.size();
+		return theListOfAllFiles.size();
 	}
 
 	/**
@@ -45,8 +45,8 @@ public class MusicOrganizer {
 	 *            The index of the file to be listed.
 	 */
 	public void listFile(int index) {
-		if (index >= 0 && index < files.size()) {
-			String filename = files.get(index);
+		if (index >= 0 && index < theListOfAllFiles.size()) {
+			String filename = theListOfAllFiles.get(index);
 			System.out.println(filename);
 		}
 	}
@@ -58,21 +58,22 @@ public class MusicOrganizer {
 	 *            The index of the file to be removed.
 	 */
 	public void removeFile(int index) {
-		if (index >= 0 && index < files.size()) {
-			files.remove(index);
+		if (index >= 0 && index < theListOfAllFiles.size()) {
+			theListOfAllFiles.remove(index);
 		}
 	}
 
 	public void listAllFiles() {
 		System.out.println("Alle Dateien:");
-		for (int index = 0; index < files.size(); index++) {
-			System.out.println("# " + (index + 1) + ": " + files.get(index));
+		for (int index = 0; index < theListOfAllFiles.size(); index++) {
+			System.out.println("# " + (index + 1) + ": "
+					+ theListOfAllFiles.get(index));
 		}
 	}
 
 	public void listAllFiles_with_for_each() {
 		System.out.println("Alle Dateien:");
-		for (String file : files) {
+		for (String file : theListOfAllFiles) {
 			System.out.println(file);
 		}
 	}
@@ -101,13 +102,14 @@ public class MusicOrganizer {
 	}
 
 	public void findFiles(String wasgesuchtwird) {
-		for (String file : files) {
+		for (String file : theListOfAllFiles) {
 			if (file.contains(wasgesuchtwird))
 				System.out.println("found: " + file);
 
 		}
 
 	}
+
 	public static void testDelete() {
 
 		MusicOrganizer mo = new MusicOrganizer();
@@ -116,14 +118,28 @@ public class MusicOrganizer {
 		mo.addFile("baz.mp3");
 		mo.addFile("foobar.mp3");
 		mo.addFile("bla.mp3");
-		
+		System.out.println("before delete:");
+		mo.listAllFiles();
 		mo.deleteContaining("bar");
 		System.out.println("should be: foo baz foobar bla");
 		mo.listAllFiles();
 	}
 
+	public void deleteContaining(String nameToDelete) {
+		for (int index = 0; index < theListOfAllFiles.size(); index++) {
+			String file = theListOfAllFiles.get(index);
+			System.out.println("Looking at file: " + file);
+			if (file.contains(nameToDelete)) {
+				// delete
+				theListOfAllFiles.remove(index);
+				return;
+			}
+		}
+
+	}
+
 	public static void main(String[] x) {
-		testFind();
+		testDelete();
 
 	}
 }
